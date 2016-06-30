@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}
+    tables
+{% endblock %}
+
+{% block list1 %}
+    {% for item in project_name %}
+        <li ><a href="{{url_for('project_views.flot', value=item)}}">{{item}}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block list2 %}
+    {% for item in project_name %}
+        <li ><a href="{{url_for('project_views.table', value=item)}}">{{item}}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block first %}
+{% endblock %}
+
+{% block second %}
+{% endblock %}
+
+{% block last %}
+    active
+{% endblock %}
+
+{% block container %}
+
+<div class="row-fluid">
+    <div class="span12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+        <h3 class="page-title">
+
+            Tables <small>managed table samples</small>
+
+        </h3>
+
+        <ul class="breadcrumb">
+
+            <li>
+
+                <i class="icon-home"></i>
+
+                <a href="index">Home</a>
+
+                <i class="icon-angle-right"></i>
+
+            </li>
+
+            <li><a href="#">Tables</a></li>
+
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+
+    </div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+        <div class="portlet box blue">
+
+            <div class="portlet-title">
+
+                <div class="caption"><i class="icon-globe"></i>DataTables Advanced Tables</div>
+
+                <div class="tools">
+
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+
+                    <a href="javascript:;" class="remove"></a>
+
+                </div>
+
+            </div>
+
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead style="background-color: #b9cbd5">
+                    <tr>
+                        <th><strong>BugID</strong></th>
+                        <th><strong>Branch</strong></th>
+                        <th><strong>Assigner</strong></th>
+                        <th><strong>Priority</strong></th>
+                        <th><strong>Status</strong></th>
+                        <th><strong>COMMENT FROM CEA</strong></th>
+                        <th><strong>Type</strong></th>
+                        <th><strong>Reg/Ref</strong></th>
+                        <th><strong>DEADLINE</strong></th>
+                        <th><strong>Summary</strong></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for item in result %}
+                    <tr>
+                        <td>{{item[0]}}</td>
+                        <td>{{item[1]}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
+                        <td>{{item[4]}}</td>
+                        <td>{{item[5]}}</td>
+                        <td>{{item[6]}}</td>
+                        <td>{{item[7]}}/{{item[8]}}</td>
+                        <td>{{item[9]}}</td>
+                        <td>{{item[10]}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+
+        <!-- END EXAMPLE TABLE PORTLET-->
+
+    </div>
+
+</div>
+{% endblock %}
+
+
